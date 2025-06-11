@@ -5,7 +5,27 @@ A comprehensive proposal for using **CRTP (Curiously Recurring Template Pattern)
 [🇨🇳 中文版本](./README_cn.md)
 
 MLIR Community Discussion : [rfc-modern-c-alternative-to-tablegen-for-mlir-operation-definition](https://discourse.llvm.org/t/rfc-modern-c-alternative-to-tablegen-for-mlir-operation-definition/86800)
- 
+
+## 🔑 Core Design Philosophy: Non-Invasive Code, Invasive Functionality
+
+**The key innovation**: Users can control and modify framework behavior **from their own scope** without modifying any framework code.
+
+- **Code Non-Invasive**: Zero changes to framework source code
+- **Functionality Invasive**: Complete control over framework behavior
+- **Implementation**: Declarative trait binding controls the base class of framework operations
+
+This approach inverts the traditional extension model - instead of the framework providing fixed extension points, **users declare what they want, and the framework adapts automatically without any code enhancement**.
+
+## 🤖 Tips
+- Understanding this approach's implementation principles and various usage patterns with AI assistance can significantly accelerate the process of familiarizing with this approach and exploring more possible extension usages.
+- Possible AI prompts:
+-- "Explain CRTP patterns in MLIR operation definition"
+-- "Compare TableGen vs CRTP approaches for framework extension"
+-- "Help me understand the 'non-invasive code, invasive functionality' design philosophy"
+-- "How does this approach control and modify framework behavior without modifying MLIR framework code"
+-- "Analyze the trait_binding mechanism in this CRTP proposal"
+-- "I have this requirement (xxx), how can I use this approach's techniques to solve it"
+
 ## ⚠️ Error/Exception Handling
 
 **Error/Exception Handling**: This project's demonstration code focuses on showcasing core technical concepts and essential functionality. For clarity and to highlight key points, detailed error handling (boundary checks, exception handling, etc.) has been omitted. Please add appropriate error handling mechanisms in production environments.

@@ -11,6 +11,16 @@
 
 This RFC proposes replacing TableGen-based operation definition in MLIR with a modern C++ approach using **Curiously Recurring Template Pattern (CRTP)** combined with **selective method overriding** and **code non-invasive/framework functionality invasive enhancement extension**. This approach provides greater flexibility, eliminates the learning curve of TableGen syntax, and leverages the full power of the C++ type system while maintaining zero runtime overhead.
 
+## 🤖 Tips
+- Understanding this approach's implementation principles and various usage patterns with AI assistance can significantly accelerate the process of familiarizing with this approach and exploring more possible extension usages.
+- Possible AI prompts:
+-- "Explain CRTP patterns in MLIR operation definition"
+-- "Compare TableGen vs CRTP approaches for framework extension"
+-- "Help me understand the 'non-invasive code, invasive functionality' design philosophy"
+-- "How does this approach control and modify framework behavior without modifying MLIR framework code"
+-- "Analyze the trait_binding mechanism in this CRTP proposal"
+-- "I have this requirement (xxx), how can I use this approach's techniques to solve it"
+
 ## Background and Motivation
 
 ### Current TableGen Limitations
@@ -40,6 +50,16 @@ This RFC proposes replacing TableGen-based operation definition in MLIR with a m
 The MLIR ecosystem is fundamentally a pure C++ ecosystem, with even "Python bindings" being C++ code using pybind11. This raises a fundamental question: **Since we're solving C++ problems, why take a detour through TableGen to generate C++ instead of using modern C++ native capabilities directly?** Using C++ to solve C++'s inherent problems is the most ecosystem-aligned solution.
 
 ## Proposed Solution: CRTP + Selective Override + Code Non-invasive/Framework Functionality Invasive Enhancement Extension
+
+### 🔑 Core Design Philosophy: Non-Invasive Code, Invasive Functionality
+
+**The key innovation**: Users can control and modify framework behavior **from their own scope** without modifying any framework code.
+
+- **Code Non-Invasive**: Zero changes to framework source code
+- **Functionality Invasive**: Complete control over framework behavior
+- **Implementation**: Declarative trait binding controls the base class of framework operations
+
+This approach inverts the traditional extension model - instead of the framework providing fixed extension points, **users declare what they want, and the framework adapts automatically without any code enhancement**.
 
 ### Core Design Principle
 

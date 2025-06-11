@@ -4,6 +4,8 @@ A comprehensive proposal for using **CRTP (Curiously Recurring Template Pattern)
 
 [🇨🇳 中文版本](./README_cn.md)
 
+MLIR Community Discussion : [rfc-modern-c-alternative-to-tablegen-for-mlir-operation-definition](https://discourse.llvm.org/t/rfc-modern-c-alternative-to-tablegen-for-mlir-operation-definition/86800)
+ 
 ## ⚠️ Error/Exception Handling
 
 **Error/Exception Handling**: This project's demonstration code focuses on showcasing core technical concepts and essential functionality. For clarity and to highlight key points, detailed error handling (boundary checks, exception handling, etc.) has been omitted. Please add appropriate error handling mechanisms in production environments.
@@ -15,7 +17,7 @@ Instead of generating C++ from DSL, write C++ directly with modern patterns:
 ```cpp
 // Traditional TableGen approach
 def AddOp : Op<"add", [Commutative]> {
-  let hasFolder = 1;  // Limited to predefined extension points
+  let hasFolder = 1;  // Limited to predefined extension pointsl
 }
 // Generates ~200 lines of C++ code
 

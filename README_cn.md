@@ -4,6 +4,8 @@
 
 [🌍 English Version](./README.md)
 
+MLIR 社区讨论 : [rfc-modern-c-alternative-to-tablegen-for-mlir-operation-definition](https://discourse.llvm.org/t/rfc-modern-c-alternative-to-tablegen-for-mlir-operation-definition/86800)
+
 ## ⚠️ 错误/异常处理
 
 **错误/异常处理**：本项目的演示代码专注于展示核心技术思想和实质性功能，为了保持简洁和突出重点，省略了详细的错误处理（边界检查、异常处理等）。在生产环境中请添加适当的错误处理机制。
